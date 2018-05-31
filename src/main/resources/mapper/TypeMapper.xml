@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.company.project.dao.TypeMapper">
+  <resultMap id="BaseResultMap" type="com.company.project.model.Type">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="user_id" jdbcType="INTEGER" property="userId" />
+    <result column="big_type" jdbcType="INTEGER" property="bigType" />
+    <result column="mid_type" jdbcType="INTEGER" property="midType" />
+    <result column="small_type" jdbcType="INTEGER" property="smallType" />
+    <result column="money" jdbcType="REAL" property="money" />
+    <result column="title" jdbcType="VARCHAR" property="title" />
+    <result column="desc" jdbcType="VARCHAR" property="desc" />
+    <result column="transaction_date" jdbcType="TIMESTAMP" property="transactionDate" />
+    <result column="add_time" jdbcType="TIMESTAMP" property="addTime" />
+    <result column="edit_time" jdbcType="TIMESTAMP" property="editTime" />
+    <result column="is_delete" jdbcType="INTEGER" property="isDelete" />
+  </resultMap>
+</mapper>
