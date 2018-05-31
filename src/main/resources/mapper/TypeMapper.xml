@@ -12,7 +12,7 @@
     <result column="small_type" jdbcType="INTEGER" property="smallType" />
     <result column="money" jdbcType="REAL" property="money" />
     <result column="title" jdbcType="VARCHAR" property="title" />
-    <result column="desc" jdbcType="VARCHAR" property="desc" />
+    <result column="bill_desc" jdbcType="VARCHAR" property="billDesc" />
     <result column="transaction_date" jdbcType="TIMESTAMP" property="transactionDate" />
     <result column="add_time" jdbcType="TIMESTAMP" property="addTime" />
     <result column="edit_time" jdbcType="TIMESTAMP" property="editTime" />

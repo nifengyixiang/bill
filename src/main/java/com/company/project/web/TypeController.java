@@ -1,4 +1,5 @@
 package com.company.project.web;
+
 import com.company.project.core.Result;
 import com.company.project.core.ResultGenerator;
 import com.company.project.model.Type;
@@ -10,13 +11,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import tk.mybatis.mapper.entity.Condition;
+import tk.mybatis.mapper.entity.Example;
 
 import javax.annotation.Resource;
 import java.util.List;
 
 /**
-* Created by CodeGenerator on 2018/05/30.
-*/
+ * Created by CodeGenerator on 2018/05/30.
+ */
 @RestController
 @RequestMapping("/type")
 public class TypeController {
@@ -50,19 +52,15 @@ public class TypeController {
     @PostMapping("/findByUserId")
     public Result findByUserId(@RequestParam(defaultValue = "0") Integer page, @RequestParam(defaultValue = "10") Integer size,@RequestParam Integer userId) {
         PageHelper.startPage(page, size);
-//        Example example = new Example(Type.class);
-//        Example.Criteria criteria = example.createCriteria();
-//        criteria.andCondition("user_id",userId);
-
         Condition condition = new Condition(Type.class);
-        condition.createCriteria().andCondition("user_id = 1");
+        condition.createCriteria().andCondition("user_id=", userId);
         List<Type> list = typeService.findByCondition(condition);
         PageInfo pageInfo = new PageInfo(list);
         return ResultGenerator.genSuccessResult(pageInfo);
     }
 
     @PostMapping("/list")
-    public Result list(@RequestParam(defaultValue = "0") Integer page, @RequestParam(defaultValue = "0") Integer size) {
+    public Result list(@RequestParam(defaultValue = "0") Integer page, @RequestParam(defaultValue = "10") Integer size) {
         PageHelper.startPage(page, size);
         List<Type> list = typeService.findAll();
         PageInfo pageInfo = new PageInfo(list);

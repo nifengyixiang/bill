@@ -42,7 +42,8 @@ public class Type {
     /**
      * 消费说明、注释
      */
-    private String desc;
+    @Column(name = "bill_desc")
+    private String billDesc;
 
     /**
      * 交易时间，即记录账目发生日期
@@ -191,17 +192,17 @@ public class Type {
      *
      * @return desc - 消费说明、注释
      */
-    public String getDesc() {
-        return desc;
+    public String getBillDesc() {
+        return billDesc;
     }
 
     /**
      * 设置消费说明、注释
      *
-     * @param desc 消费说明、注释
+     * @param billDesc 消费说明、注释
      */
-    public void setDesc(String desc) {
-        this.desc = desc;
+    public void setBillDesc(String billDesc) {
+        this.billDesc = billDesc;
     }
 
     /**
