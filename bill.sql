@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50714
 File Encoding         : 65001
 
-Date: 2018-05-31 11:57:19
+Date: 2018-06-01 14:06:49
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -28,9 +28,9 @@ CREATE TABLE `type` (
   `money` float(11,2) NOT NULL DEFAULT '0.00' COMMENT '单次消费金额',
   `title` varchar(255) NOT NULL DEFAULT '' COMMENT '消费标题',
   `bill_desc` varchar(255) DEFAULT '' COMMENT '消费说明、注释',
-  `transaction_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '交易时间，即记录账目发生日期',
-  `add_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '添加本条记录时间',
-  `edit_time` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '修改本次交易记录时间',
+  `transaction_date` datetime DEFAULT NULL COMMENT '交易时间，即记录账目发生日期',
+  `add_time` datetime DEFAULT NULL COMMENT '添加本条记录时间',
+  `edit_time` datetime DEFAULT NULL COMMENT '修改本次交易记录时间',
   `is_delete` int(2) NOT NULL DEFAULT '0' COMMENT '是否删除(软删除)，0：未删除   1：删除',
   PRIMARY KEY (`id`),
   KEY `user_id` (`user_id`),
@@ -54,7 +54,7 @@ CREATE TABLE `user` (
   `nick_name` varchar(255) NOT NULL DEFAULT '' COMMENT '微信昵称',
   `gender` int(2) NOT NULL DEFAULT '1' COMMENT '性别  1：男',
   `avatar_url` varchar(255) DEFAULT NULL,
-  `add_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '添加时间',
+  `add_time` datetime DEFAULT NULL COMMENT '添加时间',
   `country` varchar(255) DEFAULT NULL COMMENT '国籍',
   `province` varchar(255) DEFAULT NULL COMMENT '省份',
   `city` varchar(255) DEFAULT NULL COMMENT '城市（微信信息）',
